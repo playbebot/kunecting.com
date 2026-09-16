@@ -11,7 +11,7 @@ Landing page profesional para Kunecting, consultoría tecnológica especializada
 
 ## Arquitectura
 - Frontend: React 19 + Tailwind + framer-motion + lenis. Componentes en `src/components/landing/` (Header, Hero, Marquee, Services, About, Contact, Footer, Mosaic, Reveal). i18n propio en `src/i18n.js` (contexto + diccionario ES/EN).
-- Backend: FastAPI `server.py` — POST `/api/contact` (guarda consulta), GET `/api/contact` (lista consultas, para el equipo). MongoDB colección `contact_enquiries` (ids uuid string, timestamps ISO).
+- Backend: FastAPI `server.py` — POST `/api/contact` (guarda consulta y dispara email de notificación). El GET público de consultas se ELIMINÓ (2026-09-16) por contener datos sensibles; las consultas solo se leen en MongoDB o en el buzón hey@kunecting.com. MongoDB colección `contact_enquiries` (ids uuid string, timestamps ISO).
 - Assets de marca: `/frontend/public/kunecting-mark.png` (isotipo) y `favicon.png`.
 
 ## Personas
@@ -37,7 +37,8 @@ Landing page profesional para Kunecting, consultoría tecnológica especializada
 - Notificación por email (Resend gestionado por Emergent) a hey@kunecting.com con cada consulta: plantilla HTML de marca (mosaico, crema/tinta), envío no bloqueante, plantilla y destinatario solo del lado servidor.
 
 ## Verificado
-- POST /api/contact guarda y GET lista (2 consultas de prueba).
+- POST /api/contact guarda y dispara el email de aviso (verificado con 202 del servicio de correo).
+- GET /api/contact eliminado: la URL pública responde 405 y ya no expone ningún dato.
 - Envío end-to-end desde la UI con toast y reset del formulario.
 - Toggle ES/EN, navegación por anclas, menú móvil, layouts desktop y móvil.
 

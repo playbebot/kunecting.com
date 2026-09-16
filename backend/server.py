@@ -213,15 +213,6 @@ async def create_contact_enquiry(input: ContactEnquiryCreate):
     return enquiry
 
 
-@api_router.get("/contact", response_model=List[ContactEnquiry])
-async def list_contact_enquiries():
-    docs = await db.contact_enquiries.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
-    for d in docs:
-        if isinstance(d.get('created_at'), str):
-            d['created_at'] = datetime.fromisoformat(d['created_at'])
-    return docs
-
-
 app.include_router(api_router)
 
 app.add_middleware(
