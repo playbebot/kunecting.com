@@ -34,6 +34,7 @@ Landing page profesional para Kunecting, consultoría tecnológica especializada
 - Contacto: formulario validado (nombre, email, empresa, servicio, mensaje) con toast de éxito/error; GET /api/contact para consultar mensajes.
 - Lenis smooth scroll, grano sutil, header glass sticky, menú móvil animado.
 - i18n completo ES/EN con detección `navigator.language` + persistencia.
+- Notificación por email (Resend gestionado por Emergent) a hey@kunecting.com con cada consulta: plantilla HTML de marca (mosaico, crema/tinta), envío no bloqueante, plantilla y destinatario solo del lado servidor.
 
 ## Verificado
 - POST /api/contact guarda y GET lista (2 consultas de prueba).
@@ -41,7 +42,6 @@ Landing page profesional para Kunecting, consultoría tecnológica especializada
 - Toggle ES/EN, navegación por anclas, menú móvil, layouts desktop y móvil.
 
 ## Backlog priorizado
-- P1: Notificación por email (Resend) a hey@kunecting.com cuando llega una consulta.
 - P1: Panel simple para leer consultas sin tocar la API (o exportar CSV).
 - P2: Sección de casos de éxito / testimonios.
 - P2: Blog o recursos sobre IA para PYMEs (SEO).
