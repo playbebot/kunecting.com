@@ -20,6 +20,7 @@ export const translations = {
       secondary: "Cuéntanos tu reto",
       scroll: "Desliza para explorar",
       caption: "Un mosaico de soluciones, una sola visión: la tuya.",
+      badges: ["Diagnóstico cercano", "Tecnología sin humo", "Resultados medibles"],
     },
     marquee: [
       "Inteligencia artificial",
@@ -148,6 +149,7 @@ export const translations = {
       secondary: "Tell us your challenge",
       scroll: "Scroll to explore",
       caption: "A mosaic of solutions, one single vision: yours.",
+      badges: ["Close diagnosis", "No-hype technology", "Measurable results"],
     },
     marquee: [
       "Artificial intelligence",

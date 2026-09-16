@@ -53,6 +53,9 @@ Landing page profesional para Kunecting, consultoría tecnológica especializada
 2. Definir contenido real de casos de éxito.
 3. Revisar copy final con el equipo de Kunecting.
 
+## Rediseño hero escritorio (2026-09-16)
+- Hero enriquecido solo en escritorio (lg+): campo de mosaico interactivo de fondo con entrada en cascada y hover que enciende tiles (componente `MosaicField`), marco del logo con doble capa rotada que se endereza al hover, 10 tiles flotantes con parallax, y fila de sellos de confianza bajo los CTA. Móvil sin cambios.
+
 ## Migración a Plesk (2026-09-16)
 - Backend preparado en modo dual de email: `RESEND_API_KEY` (cuenta propia, para Plesk) o proxy gestionado de Emergent si no existe.
 - Añadidos: `frontend/public/.htaccess` (SPA fallback), `backend/.env.example`, guía paso a paso `DESPLEGAR_EN_PLESK.md`. Build de producción verificado (`yarn build` OK).

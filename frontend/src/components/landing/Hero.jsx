@@ -9,6 +9,7 @@ import {
 import { ArrowRight } from "lucide-react";
 import { useLang } from "@/i18n";
 import { MiniMosaic, FlipTile } from "./Mosaic";
+import MosaicField from "./MosaicField";
 
 const TILES = [
   { c: "#EC1E24", s: 26, top: "4%", left: "-7%", depth: 46, r: -8 },
@@ -18,6 +19,9 @@ const TILES = [
   { c: "#F05A26", s: 16, top: "46%", left: "-11%", depth: 62, r: 6 },
   { c: "#8BC540", s: 12, top: "6%", left: "54%", depth: 92, r: -14 },
   { c: "#F69220", s: 20, top: "92%", left: "58%", depth: 48, r: 4 },
+  { c: "#0C6B37", s: 15, top: "30%", left: "98%", depth: 66, r: 9 },
+  { c: "#FAAF3A", s: 12, top: "58%", left: "-4%", depth: 88, r: -10 },
+  { c: "#EC1E24", s: 13, top: "80%", left: "38%", depth: 58, r: 14 },
 ];
 
 function FloatingTile({ tile, sx, sy }) {
@@ -49,14 +53,18 @@ function HeroVisual({ sx, sy, caption }) {
     <div className="relative">
       <motion.div style={{ x: xMain, y: yMain }} className="relative">
         <div className="absolute -inset-14 rounded-full bg-[radial-gradient(circle_at_center,rgba(250,244,234,0.95),transparent_65%)]" />
-        <div className="relative rounded-[2.5rem] border border-ink/10 bg-cream-card/80 p-10 shadow-[0_40px_80px_-40px_rgba(32,30,29,0.35)] backdrop-blur-sm sm:p-14">
+        <div
+          aria-hidden
+          className="absolute inset-0 rotate-[4deg] rounded-[2.5rem] border border-ink/10 bg-gradient-to-br from-kun-amber/15 via-transparent to-kun-green/10"
+        />
+        <div className="relative -rotate-2 rounded-[2.5rem] border border-ink/10 bg-cream-card/80 p-10 shadow-[0_40px_80px_-40px_rgba(32,30,29,0.35)] backdrop-blur-sm transition-transform duration-500 hover:rotate-0 sm:p-14">
           <motion.img
             src="/kunecting-mark.png"
             alt="Isotipo de Kunecting: mosaico de color formando una K"
             data-testid="hero-logo"
             animate={{ y: [0, -12, 0], rotate: [0, 1.2, 0] }}
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            className="mx-auto w-full max-w-[300px] drop-shadow-xl"
+            className="mx-auto w-full max-w-[320px] drop-shadow-xl"
           />
         </div>
       </motion.div>
@@ -103,7 +111,8 @@ export default function Hero({ onNavigate }) {
       data-testid="hero-section"
       className="relative flex min-h-screen items-center overflow-hidden px-5 pb-24 pt-32 md:px-10"
     >
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+      <MosaicField />
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div style={{ opacity: fade, y: drift }}>
           <div className="mb-10 flex justify-center lg:hidden">
             <motion.img
@@ -189,6 +198,21 @@ export default function Hero({ onNavigate }) {
             >
               {h.secondary}
             </motion.button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.15 }}
+            data-testid="hero-badges"
+            className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.18em] text-smoke"
+          >
+            {h.badges.map((b, i) => (
+              <span key={i} className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-[2px] bg-kun-green" />
+                {b}
+              </span>
+            ))}
           </motion.div>
         </motion.div>
 
