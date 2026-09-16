@@ -1,0 +1,191 @@
+{
+  "project_name": "Kunecting Landing Page",
+  "app_type": "landing_page",
+  "theme": {
+    "mode": "light",
+    "background_primary": "#F5EAD8",
+    "background_card": "#FAF4EA",
+    "background_secondary": "#EFE0C9",
+    "text_primary": "#201E1D",
+    "text_secondary": "#5C5854",
+    "border_subtle": "rgba(32, 30, 29, 0.12)"
+  },
+  "typography": {
+    "headings_font": "Caprasimo, display, serif",
+    "body_font": "Figtree, sans-serif",
+    "mono_font": "JetBrains Mono, monospace",
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@300;400;500;600;700&display=swap",
+    "rules": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight tracking-tight",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-normal leading-snug tracking-tight",
+      "h3": "text-xl sm:text-2xl font-normal leading-snug",
+      "body": "text-base sm:text-lg leading-relaxed text-[#5C5854]",
+      "label": "text-xs font-semibold tracking-widest uppercase text-[#5C5854]"
+    }
+  },
+  "color_palette": {
+    "bg_cream": "#F5EAD8",
+    "bg_card": "#FAF4EA",
+    "text_dark": "#201E1D",
+    "text_muted": "#5C5854",
+    "brand_colors": {
+      "red": "#EC1E24",
+      "orange_red": "#F05A26",
+      "orange_medium": "#F69220",
+      "orange_light": "#FAAF3A",
+      "green_primary": "#009147",
+      "green_deep": "#0C6B37",
+      "green_medium": "#39B44A",
+      "green_light": "#69BC45",
+      "green_lime": "#8BC540"
+    },
+    "mosaic_gradient_map": [
+      "#EC1E24",
+      "#F05A26",
+      "#F69220",
+      "#FAAF3A",
+      "#8BC540",
+      "#39B44A",
+      "#009147",
+      "#0C6B37"
+    ]
+  },
+  "logo_spec": {
+    "description": "Mosaic of 9 colored squares in a 3x3 grid arranged to form a negative-space white letter 'K'.",
+    "layout": "Grid of 3x3 colored tiles (#EC1E24, #F05A26, #F69220, #FAAF3A, #8BC540, #39B44A, #009147, #0C6B37). center-left and diagonal tiles cut out to reveal negative space K.",
+    "wordmark": "Kunecting (Caprasimo font for K, Figtree bold for unecting)"
+  },
+  "layout_and_structure": {
+    "header": {
+      "type": "sticky_glass",
+      "styling": "backdrop-blur-md bg-[#F5EAD8]/85 border-b border-[#201E1D]/10 z-50 py-4 px-6 md:px-12",
+      "elements": [
+        "Interactive mosaic logo badge",
+        "Navigation links: Servicios, Nosotros, Proceso, Contacto",
+        "Language Selector dropdown (ES/EN) with browser auto-detection (navigator.language)",
+        "Secondary CTA button: 'Hablar con un consultor'"
+      ]
+    },
+    "hero": {
+      "layout": "Asymmetric kinetic hero with grid pattern and floating mosaic element",
+      "headline_es": "Tecnología e IA con visión humana para potenciar tu PYME",
+      "headline_en": "Human-centered AI & tech consulting to elevate your business",
+      "subheadline_es": "Acompañamos a PYMEs y startups a digitalizarse, automatizar procesos y transformar la atención al cliente sin fricciones ni complejidad.",
+      "subheadline_en": "Guiding SMEs and startups through seamless digital transformation, AI automation, and customer experience refinement.",
+      "interactive_tile": "Dynamic interactive mosaic component where hovering flips tile colors and reveals K branding"
+    },
+    "services": {
+      "headline": "Nuestras Soluciones Especializadas",
+      "description": "Cuatro ejes de transformación diseñados para aportar eficiencia real y resultados sostenibles.",
+      "items": [
+        {
+          "id": "ai-automation",
+          "title_es": "Consultoría de IA y Automatización",
+          "title_en": "AI & Automation Consulting",
+          "desc_es": "Identificamos e implementamos soluciones de inteligencia artificial para automatizar tareas repetitivas y acelerar la toma de decisiones.",
+          "desc_en": "We identify and deploy AI solutions to automate repetitive workflows and empower faster, data-driven decisions.",
+          "accent_color": "#EC1E24",
+          "icon": "Bot"
+        },
+        {
+          "id": "digital-transformation",
+          "title_es": "Transformación Digital General",
+          "title_en": "General Digital Transformation",
+          "desc_es": "Auditamos y modernizamos la arquitectura tecnológica de tu empresa para escalar de forma ordenada y rentable.",
+          "desc_en": "Modernizing your tech architecture so your organization can scale efficiently and securely.",
+          "accent_color": "#F05A26",
+          "icon": "Sparkles"
+        },
+        {
+          "id": "customer-tools",
+          "title_es": "Herramientas de Atención al Cliente",
+          "title_en": "Customer Support Tooling",
+          "desc_es": "Seleccionamos, integramos y optimizamos el stack de software (CRM, ticketing, omnicanalidad) adaptado a tus equipos.",
+          "desc_en": "Selecting and connecting best-in-class CRM, ticketing, and omnichannel support tools.",
+          "accent_color": "#009147",
+          "icon": "Headphones"
+        },
+        {
+          "id": "customer-processes",
+          "title_es": "Procesos de Atención al Cliente",
+          "title_en": "Customer Support Processes",
+          "desc_es": "Rediseñamos los flujos de comunicación con tus clientes para elevar la satisfacción, reducir tiempos y aumentar la retención.",
+          "desc_en": "Redesigning support workflows to boost satisfaction scores, lower response times, and elevate retention.",
+          "accent_color": "#0C6B37",
+          "icon": "Workflow"
+        }
+      ]
+    },
+    "about": {
+      "headline": "Quiénes somos y nuestro enfoque",
+      "desc_es": "En Kunecting combinamos rigor tecnológico con una mentalidad cercana. No vendemos fórmulas genéricas; entendemos la realidad operativa de las PYMEs y co-creamos soluciones realistas.",
+      "desc_en": "At Kunecting, we fuse high technical standards with warm human partnership. We don't push generic templates; we study your operations and build pragmatic solutions.",
+      "pillars": [
+        {
+          "title_es": "Cercanía y Diagnóstico",
+          "title_en": "Human Partnership",
+          "desc_es": "Nos integramos con tu equipo para comprender los cuellos de botella antes de sugerir cualquier software.",
+          "desc_en": "We listen and audit your existing workflow before proposing technology."
+        },
+        {
+          "title_es": "Rigor sin Complejidad",
+          "title_en": "Pragmatic Rigor",
+          "desc_es": "Traducimos la tecnología compleja en herramientas sencillas que tu personal amará usar.",
+          "desc_en": "Translating complex tech into simple intuitive tools your team will actually love."
+        },
+        {
+          "title_es": "Impacto Medible",
+          "title_en": "Measurable Impact",
+          "desc_es": "Cada proyecto tiene métricas claras: horas ahorradas, tiempo de respuesta reducido y mayor retorno.",
+          "desc_en": "Focus on clear outcomes: hours saved, reduced turnaround time, higher ROI."
+        }
+      ]
+    },
+    "contact": {
+      "headline": "Hablemos de tu proyecto",
+      "subheadline_es": "Cuéntanos sobre tus retos actuales. Te responderemos en menos de 24 horas con un análisis inicial.",
+      "subheadline_en": "Share your current operational challenges. We will reply within 24 hours with a preliminary assessment.",
+      "direct_email": "hey@kunecting.com",
+      "form_fields": [
+        {"name": "name", "label_es": "Nombre completo", "label_en": "Full Name", "type": "text", "required": true},
+        {"name": "email", "label_es": "Correo electrónico", "label_en": "Email Address", "type": "email", "required": true},
+        {"name": "company", "label_es": "Empresa / Startup", "label_en": "Company Name", "type": "text", "required": false},
+        {"name": "service", "label_es": "Servicio de interés", "label_en": "Service of Interest", "type": "select", "options": ["Consultoría IA", "Transformación Digital", "Herramientas Customer Support", "Procesos Customer Support", "Otro"], "required": true},
+        {"name": "message", "label_es": "Mensaje / Descripción del reto", "label_en": "Message / Problem Description", "type": "textarea", "required": true}
+      ],
+      "backend_endpoint": "/api/contact"
+    }
+  },
+  "interactive_components": [
+    "Language Toggle in Header with persistent local storage & automatic navigator.language detection",
+    "Mosaic Visual Generator: Dynamic 3x3 interactive K pattern with colorful hover animations",
+    "Mosaic Process Flow component showcasing how Kunecting conducts consulting in 4 stages",
+    "Contact form linked to FastAPI backend storing queries in MongoDB with feedback notifications via Sonner"
+  ],
+  "image_urls": {
+    "team_collaboration": "https://images.pexels.com/photos/4990531/pexels-photo-4990531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "office_meeting": "https://images.pexels.com/photos/39204859/pexels-photo-39204859.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "motion_spec": {
+    "library": "framer-motion",
+    "page_scroll": "lenis smooth scroll",
+    "hero_reveal": "staggered fade-up for text blocks",
+    "card_hover": "scale 1.02 with subtle colored drop shadow derived from logo color palette",
+    "mosaic_tiles": "staggered tilt and rotation on entrance"
+  },
+  "instructions_to_main_agent": [
+    "Load Google Fonts Caprasimo and Figtree in index.html.",
+    "Implement language switching state (ES / EN) dynamically affecting all section copies.",
+    "Ensure background color is strictly warm cream #F5EAD8 with subtle mosaic tile pattern backgrounds.",
+    "Use Lucide icons for services and key UI interactions.",
+    "Ensure all interactive elements have data-testid attributes for standard testing.",
+    "Do NOT use aggressive high-pressure sales CTAs. Focus on clarity, trust, and professional consultation.",
+    "Integrate MongoDB contact submission via FastAPI /api/contact endpoint."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": {
+    "text_contrast": "Ensure text color #201E1D on #F5EAD8 has at least 7:1 contrast.",
+    "testing_attributes": "All buttons, inputs, links, and text blocks MUST contain data-testid attributes in kebab-case.",
+    "no_raw_transparent": "Header background must use backdrop-blur and #F5EAD8/85, never raw transparent.",
+    "typography": "Use Caprasimo font exclusively for main section titles and logo, Figtree for body and UI elements."
+  }
+}
