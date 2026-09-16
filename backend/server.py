@@ -26,7 +26,9 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 EMAIL_BASE_URL = "https://integrations.emergentagent.com"
-EMAIL_KEY = os.environ["EMERGENT_EMAIL_KEY"]
+EMAIL_KEY = os.environ.get("EMERGENT_EMAIL_KEY")
+RESEND_API_KEY = os.environ.get("RESEND_API_KEY")
+RESEND_FROM_EMAIL = os.environ.get("RESEND_FROM_EMAIL")
 EMAIL_FROM_NAME = os.environ["EMAIL_FROM_NAME"]
 EMAIL_REPLY_TO = os.environ.get("EMAIL_REPLY_TO")
 OWNER_NOTIFY_EMAIL = os.environ["OWNER_NOTIFY_EMAIL"]
@@ -105,16 +107,26 @@ def _assert_safe_email(subject: str, html: str) -> None:
 
 async def send_email(*, to: str, subject: str, html: str, reply_to: str | None = None) -> str | None:
     _assert_safe_email(subject, html)
-    payload = {"to": [to], "subject": subject, "html": html, "from_name": EMAIL_FROM_NAME}
-    if reply_to or EMAIL_REPLY_TO:
-        payload["contact_email"] = reply_to or EMAIL_REPLY_TO
+    if RESEND_API_KEY:
+        payload = {
+            "from": RESEND_FROM_EMAIL or f"{EMAIL_FROM_NAME} <onboarding@resend.dev>",
+            "to": [to],
+            "subject": subject,
+            "html": html,
+        }
+        if reply_to or EMAIL_REPLY_TO:
+            payload["reply_to"] = reply_to or EMAIL_REPLY_TO
+        url = "https://api.resend.com/emails"
+        headers = {"Authorization": f"Bearer {RESEND_API_KEY}"}
+    else:
+        payload = {"to": [to], "subject": subject, "html": html, "from_name": EMAIL_FROM_NAME}
+        if reply_to or EMAIL_REPLY_TO:
+            payload["contact_email"] = reply_to or EMAIL_REPLY_TO
+        url = f"{EMAIL_BASE_URL}/api/v1/email/send"
+        headers = {"X-Email-Key": EMAIL_KEY}
     try:
         async with httpx.AsyncClient(timeout=30) as http_client:
-            resp = await http_client.post(
-                f"{EMAIL_BASE_URL}/api/v1/email/send",
-                headers={"X-Email-Key": EMAIL_KEY},
-                json=payload,
-            )
+            resp = await http_client.post(url, headers=headers, json=payload)
         resp.raise_for_status()
         return resp.json().get("id")
     except httpx.HTTPStatusError as e:

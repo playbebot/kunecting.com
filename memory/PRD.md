@@ -52,3 +52,8 @@ Landing page profesional para Kunecting, consultoría tecnológica especializada
 1. Conectar notificación de email con Resend (integration_expert).
 2. Definir contenido real de casos de éxito.
 3. Revisar copy final con el equipo de Kunecting.
+
+## Migración a Plesk (2026-09-16)
+- Backend preparado en modo dual de email: `RESEND_API_KEY` (cuenta propia, para Plesk) o proxy gestionado de Emergent si no existe.
+- Añadidos: `frontend/public/.htaccess` (SPA fallback), `backend/.env.example`, guía paso a paso `DESPLEGAR_EN_PLESK.md`. Build de producción verificado (`yarn build` OK).
+- HALLAZGO: `hey@kunecting.com` es rechazado como destinatario no entregable (el dominio no tiene correo activo). El envío funciona (verificado con 202 a dirección de pruebas). Pendiente: el usuario debe indicar un buzón real o activar correo en su dominio.
